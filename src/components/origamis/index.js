@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styles from './index.module.css';
 import Origam from '../origam';
+import Title from '../title';
 
 class Origamis extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class Origamis extends Component {
 
         return origamis.map((origam, index) => {
             return (
-                <Origam key={origam._id} index={index} {...origam}/>
+                <Origam key={origam._id} index={index} {...origam} />
             )
         });
     }
@@ -37,12 +38,13 @@ class Origamis extends Component {
     render() {
 
         return (
-            <div className={styles.container}>
-                <h1 className={styles.title}>Origamis</h1>
+            <Fragment>
+                <Title title="Publications" />
                 <div className={styles['origamis-wrapper']}>
                     {this.renderOrigamis()}
                 </div>
-            </div>
+            </Fragment>
+
         )
     }
 }
