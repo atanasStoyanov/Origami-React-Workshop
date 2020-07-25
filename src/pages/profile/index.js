@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styles from './index.module.css';
 import PageLayout from '../../components/page-layout';
 import Origamis from '../../components/origamis';
+import SubTitle from '../../components/sub-title';
+import profilePic from '../../images/profile.png';
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -35,7 +37,7 @@ class ProfilePage extends Component {
     render() {
         const { username, posts } = this.state;
 
-        if(!username) {
+        if (!username) {
             return (
                 <PageLayout>
                     <div>Loading...</div>
@@ -45,10 +47,23 @@ class ProfilePage extends Component {
 
         return (
             <PageLayout>
-                <p>User: {username}</p>
-                <p>Posts: {posts}</p>
-
-                <Origamis length={3} />
+                <div className={styles.profile}>
+                    <img src={profilePic} className={styles['profile-img']}/>
+                    <div className={styles['personal-info']}>
+                        <p className={styles.info}>
+                            <span>User:</span>
+                            {username}
+                        </p>
+                        <p className={styles.info} >
+                            <span>Posts:</span>
+                            {posts}
+                        </p>
+                    </div>
+                    <div>
+                        <SubTitle title='3 of your recent posts' />
+                        <Origamis length={3} />
+                    </div>
+                </div>
             </PageLayout>
         )
     }
