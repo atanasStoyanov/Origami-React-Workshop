@@ -5,6 +5,7 @@ import Title from '../../components/title';
 import SubmitButton from '../../components/button/submit-button';
 import Input from '../../components/input';
 import authenticate from '../../utils/authentication';
+import UserContext from '../../Context';
 
 class RegisterPage extends Component {
 
@@ -18,6 +19,8 @@ class RegisterPage extends Component {
         }
 
     }
+
+    static contextType = UserContext;
 
     handleChange = (event, type) => {
         const newState = {};
@@ -38,8 +41,9 @@ class RegisterPage extends Component {
            username, 
            password
        },
-       () => {
+       (user) => {
            console.log('Successfull registration');
+           this.context.logIn(user);
            this.props.history.push('/')
        },
        (e) => console.log('Error: ', e));
