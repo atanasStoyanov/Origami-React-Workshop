@@ -5,6 +5,7 @@ import Title from '../../components/title';
 import SubmitButton from '../../components/button/submit-button';
 import Input from '../../components/input';
 import authenticate from '../../utils/authentication';
+import UserContext from '../../Context';
 
 class LoginPage extends Component {
 
@@ -15,8 +16,9 @@ class LoginPage extends Component {
             username: '',
             password: '',
         }
-
     }
+
+    static contextType = UserContext;
 
     handleChange = (event, type) => {
         const newState = {};
@@ -37,8 +39,9 @@ class LoginPage extends Component {
            username, 
            password
        },
-       () => {
+       (user) => {
            console.log('Login successfull');
+            this.context.logIn(user);
            this.props.history.push('/')
        },
        (e) => console.log('Error: ', e));
