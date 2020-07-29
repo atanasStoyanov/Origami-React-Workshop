@@ -4,6 +4,7 @@ import PageLayout from '../../components/page-layout';
 import Origamis from '../../components/origamis';
 import SubTitle from '../../components/sub-title';
 import profilePic from '../../images/profile.png';
+import UserContext from '../../Context';
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -14,6 +15,8 @@ class ProfilePage extends Component {
             posts: null
         }
     }
+
+    static contextType = UserContext
 
     componentDidMount() {
         this.getUser(this.props.match.params.userid);
@@ -34,6 +37,12 @@ class ProfilePage extends Component {
         });
     }
 
+    logOut = () => {
+        this.context.logOut();
+        this.props.history.push('/');
+
+    }
+
     render() {
         const { username, posts } = this.state;
 
@@ -48,7 +57,7 @@ class ProfilePage extends Component {
         return (
             <PageLayout>
                 <div className={styles.profile}>
-                    <img src={profilePic} className={styles['profile-img']}/>
+                    <img src={profilePic} className={styles['profile-img']} />
                     <div className={styles['personal-info']}>
                         <p className={styles.info}>
                             <span>User:</span>
@@ -59,6 +68,7 @@ class ProfilePage extends Component {
                             {posts}
                         </p>
                     </div>
+                    <button onClick={this.logOut}>Logout</button>
                     <div>
                         <SubTitle title='3 of your recent posts' />
                         <Origamis length={3} />
