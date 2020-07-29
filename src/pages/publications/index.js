@@ -9,7 +9,6 @@ class Publications extends Component {
   static contextType = UserContext;
 
   render() {
-    console.log(this.context);
     return (
       <PageLayout>
         <Title title="Publications" />
