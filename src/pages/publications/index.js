@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './index.module.css';
 import Origamis from '../../components/origamis';
 import PageLayout from '../../components/page-layout';
 import Title from '../../components/title';

@@ -18,7 +18,7 @@ class Header extends Component {
 
         return (
             <header className={styles.navigation} >
-                <img src={logo} className={styles.logo} />
+                <img src={logo} className={styles.logo} alt='logo' />
                 {
                     links.map(navElement => {
                         return (

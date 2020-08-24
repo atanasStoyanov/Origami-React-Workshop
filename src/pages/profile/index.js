@@ -57,7 +57,7 @@ class ProfilePage extends Component {
         return (
             <PageLayout>
                 <div className={styles.profile}>
-                    <img src={profilePic} className={styles['profile-img']} />
+                    <img src={profilePic} className={styles['profile-img']} alt='profile'/>
                     <div className={styles['personal-info']}>
                         <p className={styles.info}>
                             <span>User:</span>
