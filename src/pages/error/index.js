@@ -9,7 +9,7 @@ const ErrorPage = () => {
         <PageLayout>
             <div className={styles.container}>
                 <Title title='Something went wrong...' />
-                <img src={errorImg} className={styles['error-img']} />
+                <img src={errorImg} className={styles['error-img']} alt='error' />
             </div>
         </PageLayout>
     )

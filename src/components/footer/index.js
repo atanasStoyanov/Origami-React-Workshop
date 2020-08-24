@@ -26,7 +26,7 @@ class Footer extends Component {
                             )
                         })
                     }
-                    <img className={styles.logo} src={image} />
+                    <img className={styles.logo} src={image} alt='logo'/>
                     <p className={styles.university}>Software University 2020</p>
                 </div>
             </footer>
